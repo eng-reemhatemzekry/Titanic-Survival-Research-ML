@@ -2,35 +2,23 @@
 
 ## Overview
 
-This project presents a complete end-to-end machine learning pipeline for predicting passenger survival on the Titanic dataset from the :contentReference[oaicite:0]{index=0}.
+This project is an end-to-end machine learning pipeline for predicting passenger survival on the Titanic dataset from Kaggle.
 
-The goal of this project is not only to achieve strong predictive performance, but also to demonstrate professional machine learning engineering practices, including:
+The main goal of this project is to explore advanced machine learning techniques while following professional ML engineering practices such as:
 
-- Advanced Feature Engineering
-- Leakage-Safe Preprocessing Pipelines
+- Feature Engineering
+- Data Preprocessing
 - Ensemble Learning
-- Hyperparameter Optimization
-- Explainable AI (XAI)
+- Hyperparameter Tuning
+- Explainable AI
 - Cross Validation
 - Error Analysis
-- Reproducible Workflow Design
 
-This repository follows a modular and research-oriented structure inspired by real-world ML projects and Kaggle best practices.
-
----
-
-# Project Objectives
-
-- Build a high-performance Titanic survival prediction model
-- Explore advanced tabular machine learning techniques
-- Compare multiple ML algorithms
-- Apply ensemble learning strategies
-- Develop explainable and reproducible ML workflows
-- Demonstrate strong ML engineering and research skills
+The project is organized in a modular and clean structure similar to real-world ML projects.
 
 ---
 
-# Repository Structure
+# Project Structure
 
 ```bash
 Titanic-Advanced-ML-Pipeline/
@@ -53,16 +41,13 @@ Titanic-Advanced-ML-Pipeline/
 │   └── inference.py
 │
 ├── models/
-│
 ├── submissions/
-│
 ├── reports/
 │   ├── figures/
 │   └── results/
 │
 ├── requirements.txt
 ├── README.md
-├── .gitignore
 └── LICENSE
 ```
 
@@ -71,17 +56,17 @@ Titanic-Advanced-ML-Pipeline/
 # Dataset
 
 Dataset source:
+https://www.kaggle.com/competitions/titanic
 
-- :contentReference[oaicite:1]{index=1}
+The dataset contains information about Titanic passengers such as:
 
-The dataset contains information about Titanic passengers, including:
-
-- Passenger demographics
-- Ticket information
-- Cabin details
-- Socioeconomic class
-- Family relations
-- Survival outcome
+- Age
+- Gender
+- Ticket class
+- Fare
+- Cabin
+- Family members
+- Survival status
 
 Target variable:
 
@@ -98,158 +83,99 @@ Survived
 
 ## 1. Exploratory Data Analysis (EDA)
 
-Performed extensive exploratory analysis to understand:
+Performed data analysis and visualization to understand:
 
 - Missing values
 - Feature distributions
 - Survival patterns
-- Correlations
-- Class imbalance
-- Passenger demographics
+- Correlations between features
 
 Visualizations include:
 
 - Count plots
-- KDE plots
-- Correlation heatmaps
-- Survival distributions
-- Missing value analysis
+- Heatmaps
+- Histograms
+- Survival analysis plots
 
 ---
 
-# 2. Feature Engineering
+## 2. Feature Engineering
 
-Advanced feature engineering techniques were applied to improve model performance.
+Created new features to improve model performance, including:
 
-Engineered features include:
-
-| Feature | Description |
-|---|---|
-| `Title` | Extracted from passenger names |
-| `FamilySize` | Total family members aboard |
-| `IsAlone` | Whether passenger traveled alone |
-| `Deck` | Cabin deck extracted from cabin number |
-| `FarePerPerson` | Fare divided by family size |
-| `TicketGroup` | Number of passengers sharing the same ticket |
-| `AgeBin` | Age grouping categories |
-| `Sex_Pclass` | Interaction feature between sex and class |
-
-Feature engineering plays a critical role in improving tabular ML performance.
+- Title extraction from names
+- Family size
+- IsAlone feature
+- Deck extraction
+- Fare per person
+- Ticket group size
 
 ---
 
-# 3. Preprocessing Pipeline
+## 3. Data Preprocessing
 
-A leakage-safe preprocessing pipeline was implemented using:
+Implemented preprocessing pipelines using:
 
-- `Pipeline`
-- `ColumnTransformer`
-- `OneHotEncoder`
-- `StandardScaler`
-- `SimpleImputer`
+- Missing value imputation
+- Feature encoding
+- Feature scaling
 
-Advantages:
+Tools used:
 
-- Reproducibility
-- Cleaner workflow
-- Reduced data leakage risk
-- Modular preprocessing design
+- Pipeline
+- ColumnTransformer
+- OneHotEncoder
+- StandardScaler
 
 ---
 
-# 4. Models Used
+## 4. Models Used
 
 The following machine learning models were trained and evaluated:
 
-| Model | Purpose |
-|---|---|
-| Logistic Regression | Baseline model |
-| Random Forest | Ensemble tree model |
-| XGBoost | Gradient boosting |
-| LightGBM | Efficient boosting model |
-| CatBoost | Native categorical boosting |
-| Stacking Ensemble | Combined meta-learning approach |
-
----
-
-# 5. Ensemble Learning
-
-A stacking ensemble architecture was implemented to combine predictions from multiple models.
-
-Base learners:
-
-- CatBoost
-- LightGBM
-- XGBoost
-
-Meta learner:
-
 - Logistic Regression
-
-Ensemble learning improves generalization and predictive stability.
+- Random Forest
+- XGBoost
+- LightGBM
+- CatBoost
+- Stacking Ensemble
 
 ---
 
-# 6. Hyperparameter Optimization
+## 5. Hyperparameter Tuning
 
-Hyperparameter tuning was performed using:
+Used optimization techniques to improve model performance:
 
-- Optuna
 - RandomizedSearchCV
-
-Optimized parameters include:
-
-- Learning rate
-- Tree depth
-- Number of estimators
-- Subsampling ratios
-- Regularization settings
+- Optuna
 
 ---
 
-# 7. Cross Validation
+## 6. Cross Validation
 
-Evaluation was performed using:
-
-```python
-StratifiedKFold
-```
-
-Benefits:
-
-- Robust validation
-- Better generalization estimates
-- Reduced overfitting risk
+Used Stratified K-Fold Cross Validation for more reliable evaluation and reduced overfitting.
 
 ---
 
-# 8. Explainable AI (XAI)
+## 7. Explainable AI (XAI)
 
-Explainability analysis was conducted using:
+Used SHAP to explain model predictions and feature importance.
 
-- SHAP (SHapley Additive exPlanations)
+Explainability techniques include:
 
-Generated analyses include:
-
-- Feature importance
 - SHAP summary plots
-- Local prediction explanations
-- Feature interaction analysis
-
-This improves transparency and interpretability of model predictions.
+- Feature importance analysis
+- Individual prediction explanations
 
 ---
 
-# 9. Error Analysis
+## 8. Error Analysis
 
-Comprehensive error analysis was performed to investigate:
+Analyzed model mistakes to better understand:
 
 - False positives
 - False negatives
-- Misclassified passenger groups
-- Model weaknesses
-
-This helps identify opportunities for model improvement.
+- Difficult passenger cases
 
 ---
 
@@ -299,7 +225,7 @@ pip install -r requirements.txt
 
 # Running the Project
 
-Run notebooks in order:
+Run notebooks in the following order:
 
 ```bash
 01_EDA.ipynb
@@ -312,7 +238,7 @@ Run notebooks in order:
 
 # Results
 
-| Model | Cross Validation Accuracy |
+| Model | Accuracy |
 |---|---|
 | Logistic Regression | TBD |
 | Random Forest | TBD |
@@ -321,7 +247,7 @@ Run notebooks in order:
 | CatBoost | TBD |
 | Stacking Ensemble | TBD |
 
-Final Kaggle leaderboard score:
+Final Kaggle score:
 
 ```python
 TBD
@@ -329,31 +255,15 @@ TBD
 
 ---
 
-# Key Learning Outcomes
-
-This project demonstrates understanding of:
-
-- Advanced tabular machine learning
-- Ensemble learning strategies
-- Feature engineering
-- Explainable AI
-- ML engineering workflows
-- Model evaluation techniques
-- Reproducible research practices
-
----
-
 # Future Improvements
 
-Potential future enhancements:
+Possible future improvements include:
 
-- Automated feature selection
-- AutoML experimentation
-- Deep learning approaches
-- Bayesian optimization
-- Advanced stacking architectures
-- Model deployment with APIs
-- Interactive dashboards
+- Advanced feature selection
+- AutoML techniques
+- Deep learning models
+- Better ensemble strategies
+- Model deployment
 
 ---
 
@@ -362,9 +272,12 @@ Potential future enhancements:
 Reem Hatem
 
 AI Engineer specializing in:
-
 - Machine Learning
 - Deep Learning
 - Computer Vision
-- Explainable AI
-  
+
+---
+
+# License
+
+This project is licensed under the MIT License.
