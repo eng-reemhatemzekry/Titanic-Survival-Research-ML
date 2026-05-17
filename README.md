@@ -12,7 +12,6 @@ The main goal of this project is to explore advanced machine learning techniques
 - Hyperparameter Tuning
 - Explainable AI
 - Cross Validation
-- Error Analysis
 
 The project is organized in a modular and clean structure similar to real-world ML projects.
 
@@ -31,7 +30,6 @@ Titanic-Advanced-ML-Pipeline/
 │   ├── 01_EDA.ipynb
 │   ├── 02_Feature_Engineering.ipynb
 │   ├── 03_Modeling.ipynb
-│   └── 04_Explainability.ipynb
 │
 ├── src/
 │   ├── preprocessing.py
